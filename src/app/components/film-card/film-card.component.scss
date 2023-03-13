@@ -1,0 +1,136 @@
+
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 15px 20px;
+  gap: 10px;
+  width: 150px;
+  height: 370px;
+  cursor: pointer;
+
+  /* --pd-base-white */
+  background: #FFFFFF;
+  box-shadow: 0 0 15px rgba(29, 24, 56, 0.1);
+  border-radius: 10px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  align-self: stretch;
+  flex-grow: 0;
+}
+.card_content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 10px;
+
+  width: 150px;
+  height: 313px;
+
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+h4,h6 {
+  margin: 0;
+}
+
+.card_img {
+  width: 150px;
+  height: 225px;
+
+  /* --pd-gray-01 */
+  background: #F4F4F4;
+  border-radius: 5px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+.card_img > * {
+  border-radius: 5px;
+  width: 150px;
+  height: 225px;
+
+  background-color: #1D1838 ;
+}
+.card_name {
+  width: 150px;
+
+  /* Н4 Подзаголовок №2 */
+  font-family: 'Montserrat', sans-serif;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 16px;
+
+  /* identical to box height, or 114% */
+  display: flex;
+  align-items: center;
+
+  /* --pd-base-black */
+  color: #1D1838;
+
+}
+
+.card_genres, .card_year {
+  /* Н6 Дата и подписи */
+  font-family: 'Montserrat',sans-serif;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 12px;
+  line-height: 14px;
+
+  /* or 117% */
+  display: flex;
+  align-items: center;
+  /* --pd-base-black */
+  color: #1D1838;
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+}
+
+.favourite-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 2px;
+  gap: 9px;
+
+  width: 48px;
+  height: 48px;
+
+  border-radius: 100px;
+  /* Inside auto layout */
+  flex: none;
+  order: 1;
+  flex-grow: 0;
+  cursor: pointer;
+  transition: 0.35s ease-in-out;
+
+}
+.favourite-container:hover {
+
+  background-color: rgb(229, 229, 229);
+}
+.favourite-container_img {
+
+  margin-top: 2px;
+  width: 20px;
+  height: 19px;
+
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+}
+

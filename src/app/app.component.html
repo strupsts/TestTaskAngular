@@ -1,0 +1,45 @@
+<div class="mainContainer">
+  <div class="mainContainer_popular">
+    <h2>Популярные фильмы</h2>
+<!--  Фильтр по поиску и жанрам -->
+    <div class="mainContainer_popular_filter">
+      <mat-form-field appearance="outline" >
+<!--  Двойная привязка ради сетапа начального значения и записи в var userGenre индекса выбранного жанра -->
+        <mat-select [(ngModel)]="userGenre">
+<!--  Дефолтный пункт селекта. При выборе его, фильтрация по жанрам сбрасывается -->
+         <mat-option [value]="false" >Все</mat-option>
+<!--  Разворачиваем список жанров и передаем каждому соответствующий индекс -->
+          <mat-option *ngFor="let genre of filmsService.genreBase"
+                      [value]="filmsService.genreBase.indexOf(genre)+1"
+          >
+            {{genre}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="outline" >
+        <mat-label>Введите название</mat-label>
+        <input matInput  type="text" [(ngModel)]="userSearching">
+      </mat-form-field>
+    </div>
+
+ <!-- Отображение индикатора загрузки-->
+    <div class="loadingInd" *ngIf="loading"><span>Загрузка</span></div>
+<!--Как только данные придут - запишутся в переменную cards, в последствии фильтруются и выводятся юзеру-->
+      <div class="mainContainer_popular_allFilms" *ngIf="cards$ | async as cards">
+<!--  После фильтрации пайпом "filterFilms" каждый объект прокидывается в компонент film-card -->
+        <app-film-card *ngFor="let currCard of cards | filterFilms: userSearching : userGenre"
+                       [card]="currCard">
+        </app-film-card>
+      </div>
+
+
+  </div>
+<!-- Проверка на наличие лучшего фильма и отображение его карточки -->
+  <div class="favouriteFilmContainer" *ngIf="filmsService.userFavourite">
+      <h2>Самый лучший фильм</h2>
+      <app-film-card  [card]="filmsService.userFavourite"></app-film-card>
+  </div>
+
+</div>
+
+

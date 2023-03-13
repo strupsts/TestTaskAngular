@@ -1,0 +1,30 @@
+<!--При наведении мыши на карточку отображается блок с лайком -->
+<div class="card"  (mouseover)="userHover = true"  (mouseout)="userHover = false">
+<!--  При нажатии на контентную часть открывается диалоговое окно с подробным описанием-->
+  <div class="card_content" (click)="openCardDialog(card)" >
+    <div class="card_img">
+<!--  Динамический путь к картинке. Можете снять балл, не понял условия:
+  "Папка images должна подтягиваться к сборке, и быть не внутри assets".
+  Хотя думаю это только из-за того, что познакомился с Angular в пятницу)) -->
+      <img [src]="filmService.filmImgPath+card.id+'.jpeg'" [alt]="card.name">
+    </div>
+    <h4 class="card_name">{{card.name}}</h4>
+<!-- Получаем список жанров строкой -->
+    <h6 class="card_genres">{{filmService.getGenres(card.genre)}}</h6>
+    <h6 class="card_year">{{card.year}}</h6>
+  </div>
+
+<!--  При клике на карточку, она добавляется в "Лучшие фильмы", а также иконка лайка закрашивается.
+      При повторном клике на уже выбранный или на другой фильм карточка удаляется из "Лучшие фильмы"
+      а лайк переходит в начальный вид.
+Когда реализовывал ещё не знал про Angular Material. При необходимости могу переписать используя его -->
+  <div class="favourite-container"
+
+       (click)="filmService.changeFavourite(card)"
+       [ngStyle]="{'transition': '0.24s ease-in-out','opacity': (userHover ? '100%' : '0%')}"
+  >
+<!--  Проверка, является ли фильм лучшим. Да - лайк закрашен / Нет - полый  -->
+    <img class="favourite-container_img" [src]="getLikePath(card.name)">
+  </div>
+</div>
+

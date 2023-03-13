@@ -1,0 +1,31 @@
+<div class="card-dialog">
+<!-- Постер фильма в диалоговом окне-->
+  <img class="card-dialog-image" [src]="filmService.filmImgPath+data.id+'.jpeg'" [alt]="data.name">
+  <div class="card-dialog-content">
+    <div class="card-dialog-filmInfo">
+<!-- Название фильма -->
+      <h2 class="card-dialog-title" mat-dialog-title>{{data.name}}</h2>
+<!-- Жанры. Функция возвращает строку -->
+      <h6 class="card-dialog-genres">{{filmService.getGenres(data.genre)}}</h6>
+<!-- Год  -->
+      <h6 class="card-dialog-year">{{data.year}}</h6>
+<!-- Описание -->
+      <div class="card-dialog-description">
+        <h6>{{data.description}}</h6>
+      </div>
+    </div>
+<!--  Блок с кнопками из Angular Material  -->
+    <mat-dialog-actions class="buttons-container">
+<!-- Цвет и текст кнопки в зависимости от того, есть ли он в "Лучших" -->
+      <button mat-button [color]="(checkOnFav(data.name))? 'accent' : 'primary'"
+              (click)="filmService.changeFavourite(data)"
+      >
+        {{dialogFavValue(data.name)}}
+      </button>
+<!-- Кнопка закрытия диалог.окна -->
+      <button mat-button color="accent" mat-dialog-close>Закрыть</button>
+    </mat-dialog-actions>
+  </div>
+</div>
+
+
