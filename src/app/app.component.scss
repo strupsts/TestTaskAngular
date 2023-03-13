@@ -1,3 +1,5 @@
+
+
 .mainContainer {
   display: flex;
   flex-direction: column;
@@ -7,6 +9,7 @@
   position: absolute;
   left: 25px;
   top: 37px;
+
 }
 
 .mainContainer_popular {
@@ -15,6 +18,8 @@
   align-items: flex-start;
   padding: 0;
   gap: 15px;
+
+
 }
 
 h2 {
@@ -23,6 +28,7 @@ h2 {
   font-weight: 600;
   font-size: 20px;
   line-height: 22px;
+
   display: flex;
   align-items: center;
 }
@@ -32,44 +38,56 @@ h2 {
   align-items: flex-start;
   padding: 0;
   gap: 7px;
+
   width: 431px;
   height: 56px;
 }
 .mainContainer_popular_filter_genre {
   box-sizing: border-box;
+
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   padding: 10px 16px;
   gap: 10px;
+
   width: 212px;
   height: 56px;
+
   border: 1px solid rgba(121, 121, 121, 0.5);
   border-radius: 6px;
 }
 .mainContainer_popular_filter_genre > span {
   width: 24px;
   height: 14px;
+
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
   line-height: 14px;
+
+
   display: flex;
   align-items: center;
+
   color: #797979;
 }
 
 .mainContainer_popular_filter_name {
   box-sizing: border-box;
+
+  /* Auto layout */
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 10px 16px;
   gap: 10px;
+
   width: 212px;
   height: 56px;
+
   border: 1px solid rgba(121, 121, 121, 0.5);
   border-radius: 6px;
 }
@@ -96,6 +114,7 @@ h2 {
   align-items: flex-start;
   padding: 0;
   margin-bottom: 50px;
+  /* Inside auto layout */
   flex: none;
   order: 1;
   flex-grow: 0;
